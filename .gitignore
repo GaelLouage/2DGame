@@ -1,0 +1,56 @@
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]nity[Cc]rashHandler[Oo]ld.log
+/[Uu]nity[Cc]rashHandler64[Oo]ld.log
+/[Cc]onsol*.log
+
+# Visual Studio / Visual Studio Code generated
+/Assets/Plugins/Editor/
+/Assets/Plugins/Editor/.*
+/[Vv]isual[Ss]tudio[Ss]ettings/
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# User-specific files
+/*.userprefs
+/*.csproj
+/*.sln
+/*.suo
+/*.tmp
+/*.user
+/*.unityproj
+/*.booproj
+/*.pidb
+/*.VC.db
+/*.pidb.meta
+
+# Build artifacts
+/*.apk
+/*.unitypackage
+/*.mp4
+
+# Crashlytics generated
+/crashlytics-build.properties
+
+# Steamworks SDK
+/Assets/Plugins/Steamworks.NET/Steamworks.NET.bundle.meta
+/Assets/Plugins/Steamworks.NET/Steamworks.NET.bundle/Contents/
+/Assets/Plugins/x86_64/steam_api.bundle.meta
+/Assets/Plugins/x86_64/steam_api.bundle/Contents/
+/Assets/Plugins/x86/steam_api.bundle.meta
+/Assets/Plugins/x86/steam_api.bundle/Contents/
+
+# Android generated
+/[Bb]uild/[Aa]ndroid
