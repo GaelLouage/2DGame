@@ -9,6 +9,11 @@ TagManager:
   - crateBig
   - Crank
   - Platform
+  - CurrentPotionSpeedText
+  - CurrentPotionHealth
+  - CurrentJumpPotionText
+  - SpeedPotion
+  - HealthPotion
   layers:
   - Default
   - TransparentFX

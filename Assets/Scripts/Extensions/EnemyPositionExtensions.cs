@@ -21,29 +21,16 @@ namespace Assets.Scripts.Extensions
 
         internal static void UpdateXYAxis(this Transform transform, char negPos = '+')
         {
-            switch (negPos)
-            {
-                case '-':
-                    transform.position = new Vector2(transform.position.x - (Time.deltaTime + 0.002f), transform.position.y - Time.deltaTime);
-                    break;
-                default:
-                    transform.position = new Vector2(transform.position.x + (Time.deltaTime + 0.002f), transform.position.y - Time.deltaTime);
-                    break;
-
-            }
+            float delta = Time.deltaTime + 0.002f;
+            float x = transform.position.x + (negPos == '-' ? -delta : delta);
+            float y = transform.position.y - Time.deltaTime;
+            transform.position = new Vector2(x, y);
         }
         internal static void UpdateXAxis(this Transform transform, char negPos = '+')
         {
-            switch (negPos)
-            {
-                case '-':
-                    transform.position = new Vector2(transform.position.x - Time.deltaTime, transform.position.y);
-                    break;
-                default:
-                    transform.position = new Vector2(transform.position.x + Time.deltaTime, transform.position.y);
-                    break;
-
-            }
+            float delta = Time.deltaTime + 0.002f;
+            float x = transform.position.x + (negPos == '-' ? -delta : delta);
+            transform.position = new Vector2(x, transform.position.y);
         }
     }
 }

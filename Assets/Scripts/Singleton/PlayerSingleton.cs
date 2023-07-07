@@ -15,7 +15,6 @@ namespace Assets.Scripts.Singleton
         private PlayerSingleton()
         {
             // Initialization code
-           
         }
 
         public static PlayerSingleton Instance
@@ -25,11 +24,12 @@ namespace Assets.Scripts.Singleton
                 if (instance == null)
                 {
                     instance = new PlayerSingleton();
+                
                 }
                 return instance;
             }
         }
 
-        public PlayerEntity PlayerData { get; set; } 
+        public PlayerEntity PlayerData { get; set; } = new PlayerEntity(3,5,5);
     }
 }

@@ -9,7 +9,7 @@ namespace Assets.Scripts.Models
 {
     public class PlayerEntity
     {
-        public PlayerEntity( int health, float speed, float jumpForce)
+        public PlayerEntity( int health = 3, float speed = 5, float jumpForce = 5)
         {
             Health = health;
             Speed = speed;
@@ -31,8 +31,8 @@ namespace Assets.Scripts.Models
         public bool IsOnPlatform { get; set; }
 
         // potions
-        public int  SpeedPotion { get; set; }
-        public int  HealtPotion {get;set; }        public int JumpPotion { get; set; }    
+        public int  SpeedPotion { get; set; } = 0;
+        public int HealtPotion { get; set; } = 0;        public int JumpPotion { get; set; } = 0;
 
     }
 }
