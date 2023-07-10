@@ -1,6 +1,7 @@
 using Assets.Scripts.Singleton;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCrate : MonoBehaviour
@@ -22,7 +23,7 @@ public class PlayerCrate : MonoBehaviour
             {
                 cratePosition = transform.position.x + (-1f);
             }
-            crate.position = new Vector2(cratePosition, transform.position.y);
+            crate.position = new Vector2(transform.position.x, transform.position.y);
 
         }
         if (!Input.GetKey(KeyCode.E))

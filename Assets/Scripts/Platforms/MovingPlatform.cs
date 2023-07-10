@@ -22,6 +22,8 @@ public class MovingPlatform : MonoBehaviour
     private bool reverse;
 
 
+  
+
     private void Awake()
     {
         leftEdge = transform.position.x - movementDistance;
@@ -41,6 +43,8 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
+        
         if (collision.collider.CompareTag("Player"))
         {
             playerCollision = true;
