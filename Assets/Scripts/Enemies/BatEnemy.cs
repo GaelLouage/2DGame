@@ -25,13 +25,15 @@ namespace Assets.Scripts.Enemies
         }
         protected override void Update()
         {
-            if (Player.transform.position.x > transform.position.x && Player.transform.position.x < transform.position.x + 5)
+            if (Player.transform.position.x > transform.position.x && Player.transform.position.x < transform.position.x + 5
+                && Player.transform.position.y <= transform.position.y)
             {
                 transform.TransformYScale(XCurrentScale, YCurrentScale);
                 transform.SetAnimation(AnimControllerAttack);
                 EnemyHelpers.UpdateRightPosition(transform,Player);
             }
-            else if (Player.transform.position.x < transform.position.x && Player.transform.position.x > transform.position.x - 5)
+            else if (Player.transform.position.x < transform.position.x && Player.transform.position.x > transform.position.x - 5 
+                && Player.transform.position.y <= transform.position.y)
             {
                 transform.SetAnimation(AnimControllerAttack);
                 transform.TransformYScale(XCurrentScale, YCurrentScale, '-');

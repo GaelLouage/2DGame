@@ -11,7 +11,6 @@ public class PotionAmount : MonoBehaviour
 {
     [SerializeField]
     private  TypeOfPotion potionType;
-
     private void Update()
     {
         var potionDictionary = new Dictionary<TypeOfPotion, string>()

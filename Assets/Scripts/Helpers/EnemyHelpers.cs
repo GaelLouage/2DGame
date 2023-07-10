@@ -20,7 +20,7 @@ public static class EnemyHelpers
 
     public static void UpdateRightPosition(Transform transform, Transform player)
     {
-        if (transform.position.y > player.position.y + 0.0f)
+        if (transform.position.y > player.position.y)
         {
             transform.UpdateXYAxis();
         }
