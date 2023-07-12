@@ -13,7 +13,7 @@ using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Enemies
 {
-    public class BearEnemy : EnemyBase , IEnemyEntity
+    public class BearEnemy : EnemyBase, IEnemyEntity
     {
         private Vector3 startPosition;
         [SerializeField]
@@ -22,11 +22,12 @@ namespace Assets.Scripts.Enemies
         private float movingSpeed;
         [SerializeField]
         private int health;
- 
+
         [SerializeField]
         private AnimatorController deadAnimator;
         private bool movingRight;
         private float bearDeadtimer;
+        private bool bearIsDead;
         public int Health
         {
             get => health;
@@ -48,7 +49,6 @@ namespace Assets.Scripts.Enemies
         protected override void Awake()
         {
             startPosition = transform.position;
-            
         }
         protected override void Update()
         {
@@ -60,6 +60,7 @@ namespace Assets.Scripts.Enemies
             }
             if (Health <= 0)
             {
+                bearIsDead = true;
                 transform.GetComponent<Animator>().runtimeAnimatorController = deadAnimator;
                 bearDeadtimer += Time.deltaTime;
                 if (bearDeadtimer >= 1f)
@@ -69,20 +70,26 @@ namespace Assets.Scripts.Enemies
                     PlayerTopHit = false;
                 }
             }
-
-            if (movingRight && PlayerHit)
+            if (PlayerHit)
             {
                 PlayerSingleton.Instance.PlayerData.Health--;
-                PlayerSingleton.Instance.PlayerData.RigidBody.transform.Translate(Vector2.right * Time.deltaTime * movingSpeed);
-                PlayerHit = false;
-            } else if(PlayerHit)
-            {
-                PlayerSingleton.Instance.PlayerData.Health--;
-                PlayerSingleton.Instance.PlayerData.RigidBody.transform.Translate(Vector2.left * Time.deltaTime * movingSpeed);
                 PlayerHit = false;
             }
-          
-            if (!movingRight)
+            //if (movingRight && PlayerHit)
+            //{
+            //    PlayerSingleton.Instance.PlayerData.Health--;
+            //    PlayerSingleton.Instance.PlayerData.RigidBody.transform.Translate(Vector2.right * (Time.deltaTime  + 0.02f)* movingSpeed);
+            //    PlayerHit = false;
+            //}
+            //else if (PlayerHit)
+            //{
+            //    PlayerSingleton.Instance.PlayerData.Health--;
+            //    PlayerSingleton.Instance.PlayerData.RigidBody.transform.Translate(Vector2.left * (Time.deltaTime + 0.02f) * movingSpeed);
+                
+            //    PlayerHit = false;
+            //}
+
+            if (!movingRight && !bearIsDead)
             {
                 if (transform.position.x > startPosition.x - movingDistance)
                 {
@@ -90,12 +97,12 @@ namespace Assets.Scripts.Enemies
                     //This applies the movement relative to the object's current position.
                     transform.Translate(Vector2.left * Time.deltaTime * movingSpeed);
                 }
-                if(transform.position.x <= startPosition.x - movingDistance)
+                if (transform.position.x <= startPosition.x - movingDistance)
                 {
                     movingRight = true;
                 }
             }
-            else
+            else if(!bearIsDead)
             {
                 if (transform.position.x < startPosition.x + movingDistance)
                 {
@@ -107,7 +114,7 @@ namespace Assets.Scripts.Enemies
                     movingRight = false;
                 }
             }
-           
+
         }
     }
 }
