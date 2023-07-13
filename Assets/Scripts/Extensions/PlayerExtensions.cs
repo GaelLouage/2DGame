@@ -15,12 +15,12 @@ namespace Assets.Scripts.Extensions
         {
             if (player.PlayerData.HorizontalMovement > 0.01f)
             {
-                transform.localScale = new Vector3(4f, 4, 1);
+                transform.localScale = new Vector3(1, 1, 1);
                 player.PlayerData.IsCroushed = false;
             }
             if (player.PlayerData.HorizontalMovement < -0.01f)
             {
-                transform.localScale = new Vector3(-4f, 4, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 player.PlayerData.IsCroushed = false;
             }
         }
